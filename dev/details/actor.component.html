@@ -1,0 +1,56 @@
+<div *ngIf="actor" style="display:inline-block;vertical-align:top;">
+            <h4>{{actor.name}} details</h4>
+            <table>
+                <tr> 
+                    <td>Active:</td> 
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.active" /></td>
+                </tr> 
+                
+                <tr> 
+                    <td>Date of Birth:</td>
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.birthDate" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Birth Name:</td>
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.birthName" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Email:</td> 
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.email" /></td>
+                </tr>
+                
+                <tr> 
+                    <td>ID:</td> 
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.id" /></td>
+                </tr>
+                
+                <tr> 
+                    <td>Image URL:</td> 
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.image" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Image:</td>
+                    <td><input type="file" [(ngModel)]="file" id="fileUpload" name="file"/></td>
+                </tr>
+                
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="nametext" [(ngModel)]="actor.name" /></td>
+                </tr>
+
+                <button type="button"
+                    (click)="delete()">Delete
+                </button>
+                        
+                <button type="button"
+                    (click)="update()">Update
+                </button>
+             </table>
+        </div>
+        
+        <div *ngIf="actor" style="display:inline-block;">
+                  <img src="{{actor.image}}" style="width: 30%; height: 30%; padding-top: 50px; padding-left: 50px;"/>
+        </div>

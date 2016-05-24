@@ -1,0 +1,9 @@
+Search:
+        <div><input type="text" [(ngModel)]="listFilter" /></div>
+        <ul>
+            <li *ngFor="#actor of actors | async | actorFilter:listFilter">
+            <a [routerLink]="['Actor', {id: actor.id}]">
+                {{actor.name}}
+            </a>
+            
+        </ul>

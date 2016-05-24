@@ -1,0 +1,45 @@
+<h3>Add a new actor</h3>
+<div *ngIf="addActor">
+    <table>
+      <tr>
+        <td>Active:</td>
+        <td><input type="text" [(ngModel)]="addActor.active"/></td>
+      </tr>
+      
+      <tr>
+        <td>Date of Birth:</td>
+        <td><input type="text" [(ngModel)]="addActor.birthDate"/></td>
+      </tr>
+      
+      <tr>
+        <td>Birth Name:</td>
+        <td><input type="text" [(ngModel)]="addActor.birthName"/></td>
+      </tr>
+      
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" [(ngModel)]="addActor.email"/></td>
+      </tr>
+      
+      <tr>
+        <td>ID:</td>
+        <td><input type="text" [(ngModel)]="addActor.id"/></td>
+      </tr>
+      
+      <tr>
+        <td>Image:</td>
+        <td><input type="file" [(ngModel)]="file" id="fileUpload" name="file"/></td>
+      </tr>
+      
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" [(ngModel)]="addActor.name"/></td>
+      </tr>
+      
+      <tr>
+        <td style.colspan="2">
+          <button (click)="onAddActor()">Save actor</button>
+        </td>
+      </tr>  
+    </table>
+</div>

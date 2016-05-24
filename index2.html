@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> Test page  </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+  <h1> Test page 
+  </h1>
+  <input type="file" id="fileUpload" name="file" />
+  <input id="clickMe" type="button" value="clickme" onclick="myFunction();" />
+ </body>
+</html>
+
+<script>
+
+
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+function myFunction() {
+    alert("anand");
+	var data = new FormData();
+	data.append("actor", " {  \"name\": \"Anands Robertsssss\", \"id\": \"500\",       \"birthName\": \"Julia Fiona Roberts \",     \"birthDate\": \"October 28, 1967\",     \"email\": \"julia.roberts@att.com\",         \"active\": true}");
+	var input = document.getElementById('fileUpload');
+    var file =	input.files[0];
+   
+	//data.append("file", {"0":{}},"filename.jpg");
+	if(file){
+         	 alert(file.name);
+			data.append("file", file,file.name);
+	}else{
+		alert("no file uploaded");
+	}
+
+	console.log(data);
+
+	var url = 'http://192.168.0.21:8081/RESTFramework/rest/actors/add';
+	var xhr = createCORSRequest('POST', url);
+
+	//var xhr = new XMLHttpRequest();
+	//xhr.withCredentials = true;
+
+	xhr.addEventListener("readystatechange", function () {
+	  if (this.readyState === 4) {
+		console.log(this.responseText);
+	  }
+	}); 
+
+	//xhr.open("POST", "http://192.168.0.25:8081/RESTFramework/rest/actors/add");
+	//xhr.open("POST", "http://localhost:8081/RESTFrameworkDev/rest/actors/add");
+
+	//remove all request headers for this to work
+	//xhr.setRequestHeader("cache-control", "no-cache");
+	//xhr.setRequestHeader("Content-Type", "multipart/form-data");
+	xhr.send(data);
+
+}
+
+</script>
